@@ -12,6 +12,11 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
+// Root endpoint
+app.get('/', (req, res) => {
+  res.send('<h1>AI Girlfriend Server is Running 🚀</h1><p>Go to <a href="/health">/health</a> to check status.</p>');
+});
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', message: 'AI Girlfriend Server is running' });
